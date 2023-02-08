@@ -54,39 +54,54 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Padding(
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          elevation: 1,
+          centerTitle: true,
+          title: const Text('Lupy'),
+          actions: const [
+            Icon(Icons.notifications_outlined),
+          ],
+          iconTheme: const IconThemeData(
+            color: Colors.black,
+            size: 32,
+          ),
+          titleTextStyle: const TextStyle(
+            color: Colors.blueAccent,
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+          actionsIconTheme: const IconThemeData(
+            color: Colors.black,
+            size: 32,
+          ),
+        ),
+        drawer: Drawer(
+          backgroundColor: Colors.grey[200],
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: const [
+              UserAccountsDrawerHeader(
+                accountName: Text(
+                  "Augusto Assis",
+                  style: TextStyle(fontSize: 24),
+                ),
+                accountEmail: null,
+                currentAccountPicture: CircleAvatar(
+                  backgroundColor: Colors.white,
+                ),
+                currentAccountPictureSize: Size.fromRadius(42),
+              )
+            ],
+          ),
+        ),
+        backgroundColor: Colors.white,
+        body: Padding(
           padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
           child: Column(
             children: [
-              Expanded(
-                flex: 1,
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton(
-                      icon: const Icon(Icons.menu, size: 32),
-                      onPressed: () => const Drawer(),
-                    ),
-                    Text(
-                      'Lupy',
-                      style: TextStyle(
-                        fontSize: 32,
-                        color: Colors.blue[800],
-                      ),
-                    ),
-                    IconButton(
-                        icon:
-                            const Icon(Icons.notifications_outlined, size: 32),
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/notifications');
-                        })
-                  ],
-                ),
-              ),
               Expanded(
                 flex: 9,
                 child: ListView(
@@ -109,11 +124,11 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => {},
-        child: const Icon(
-          Icons.add,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => {},
+          child: const Icon(
+            Icons.add,
+          ),
         ),
       ),
     );
