@@ -54,51 +54,43 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          elevation: 1,
-          centerTitle: true,
-          title: const Text('Lupy'),
-          actions: const [
-            Icon(Icons.notifications_outlined),
-          ],
-          iconTheme: const IconThemeData(
-            color: Colors.black,
-            size: 32,
-          ),
-          titleTextStyle: const TextStyle(
-            color: Colors.blueAccent,
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
-          actionsIconTheme: const IconThemeData(
-            color: Colors.black,
-            size: 32,
-          ),
-        ),
-        drawer: Drawer(
-          backgroundColor: Colors.grey[200],
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: const [
-              UserAccountsDrawerHeader(
-                accountName: Text(
-                  "Augusto Assis",
-                  style: TextStyle(fontSize: 24),
-                ),
-                accountEmail: null,
-                currentAccountPicture: CircleAvatar(
-                  backgroundColor: Colors.white,
-                ),
-                currentAccountPictureSize: Size.fromRadius(42),
-              )
-            ],
-          ),
-        ),
+    return Scaffold(
+      appBar: AppBar(
         backgroundColor: Colors.white,
-        body: Padding(
+        elevation: 1,
+        title: const Text('Lupy'),
+        iconTheme: const IconThemeData(
+          color: Colors.black,
+          size: 32,
+        ),
+        titleTextStyle: const TextStyle(
+          color: Colors.blueAccent,
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      endDrawer: Drawer(
+        backgroundColor: Colors.grey[200],
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: const [
+            UserAccountsDrawerHeader(
+              accountName: Text(
+                "Augusto Assis",
+                style: TextStyle(fontSize: 24),
+              ),
+              accountEmail: null,
+              currentAccountPicture: CircleAvatar(
+                backgroundColor: Colors.white,
+              ),
+              currentAccountPictureSize: Size.fromRadius(42),
+            )
+          ],
+        ),
+      ),
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: Padding(
           padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
           child: Column(
             children: [
@@ -124,11 +116,11 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () => {},
-          child: const Icon(
-            Icons.add,
-          ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => {},
+        child: const Icon(
+          Icons.add,
         ),
       ),
     );
