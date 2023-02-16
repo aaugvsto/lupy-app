@@ -1,5 +1,7 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
-import 'package:lupito/app/pages/animal_vaccines/animal_vaccines_page.dart';
+import 'package:lupito/app/pages/animal_menu/animal_vaccines_page.dart';
 
 // ignore: must_be_immutable
 class ListViewAnimalItem extends StatefulWidget {
@@ -44,6 +46,7 @@ class _ListViewAnimalItem extends State<ListViewAnimalItem> {
           widget.color,
           widget.imagePath,
           widget.animalName.split(' ').first,
+          widget.age,
         ),
         child: Container(
           width: 300,
@@ -150,7 +153,8 @@ class _ListViewAnimalItem extends State<ListViewAnimalItem> {
     );
   }
 
-  openAnimalVaccinesPage(Color color, String imagePath, String animalName) {
+  openAnimalVaccinesPage(
+      Color color, String imagePath, String animalName, double animalAge) {
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -158,6 +162,7 @@ class _ListViewAnimalItem extends State<ListViewAnimalItem> {
           color: color,
           imagePath: imagePath,
           animalName: animalName,
+          animalAge: animalAge.toString(),
         ),
       ),
     );
